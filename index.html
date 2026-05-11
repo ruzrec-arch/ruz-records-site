@@ -175,7 +175,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
 .np-right{flex-shrink:0;}
 .np-open{font-family:var(--ff-heading);font-size:0.6rem;letter-spacing:0.12em;color:#1DB954;text-decoration:none;transition:opacity 0.2s;}
 .np-open:hover{opacity:0.7;}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:5000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.35s;}
+.modal-success{display:none;text-align:center;padding:32px 0 8px;}.modal-success.show{display:block;}.modal-success-icon{font-size:2.4rem;margin-bottom:14px;line-height:1;}.modal-success-title{font-family:var(--ff-display);font-size:1.8rem;letter-spacing:0.12em;margin-bottom:8px;color:var(--white);}.modal-success-msg{font-family:var(--ff-heading);font-size:0.7rem;letter-spacing:0.12em;color:var(--silver-dim);line-height:1.7;}.modal-error{display:none;font-family:var(--ff-heading);font-size:0.62rem;letter-spacing:0.1em;color:#ff5555;margin-top:10px;text-align:center;}.modal-error.show{display:block;}.modal-submit.loading{opacity:0.55;pointer-events:none;cursor:not-allowed;}.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:5000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.35s;}
 .modal-overlay.open{opacity:1;pointer-events:all;}
 .modal{background:#0a0a0a;border:1px solid var(--border-hover);padding:48px;max-width:520px;width:100%;position:relative;transform:translateY(24px);transition:transform 0.4s var(--ease-out);}
 .modal-overlay.open .modal{transform:translateY(0);}
@@ -304,7 +304,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
         <article class="trk-card"><div class="trk-cover"><a href="#" target="_blank" rel="noopener noreferrer" class="trk-play"><svg width="16" height="16" viewBox="0 0 24 24" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a></div><div class="trk-info"><div class="trk-num">06</div><div class="trk-title">PHONK INFERNAL</div><div class="trk-artist">FNYX & DJ BLK</div><div class="trk-meta">2026 · 320K streams</div></div></article>
     </div>
     <div style="margin-top:24px;text-align:right;">
-      <a href="#" class="btn-secondary" style="display:inline-block;font-size:0.68rem;">Ver catálogo completo →</a>
+      <a href="#musicas" class="btn-secondary" style="display:inline-block;font-size:0.68rem;">Ver catálogo completo →</a>
     </div>
   </div>
   <div class="container sub-section" id="artistas">
@@ -321,7 +321,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
         <article class="art-card"><div class="art-rank-badge" style="--rc:#CD8B4A;">Bronze Artist</div><div class="art-photo"></div><div class="art-nameline"><svg width="16" height="11" viewBox="0 0 18 12" class="name-flag"><rect width="18" height="12" fill="#009C3B"/><polygon points="9,1.5 16.5,6 9,10.5 1.5,6" fill="#FFDF00"/><circle cx="9" cy="6" r="2.5" fill="#002776"/></svg><span class="art-name" style="color:#CD8B4A;">Mc Estellar</span></div><div class="art-releases">4 releases</div></article>
     </div>
     <div style="text-align:center;margin-top:32px;">
-      <a href="#" class="btn-secondary" style="display:inline-block;font-size:0.7rem;">Ver catálogo completo de artistas →</a>
+      <a href="#artistas" class="btn-secondary" style="display:inline-block;font-size:0.7rem;">Ver catálogo completo de artistas →</a>
     </div>
   </div>
 </section>
@@ -381,14 +381,19 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
     <button class="modal-close" id="modalClose" aria-label="Fechar modal">✕</button>
     <div class="modal-title">SEND YOUR DEMO</div>
     <p class="modal-sub">Manda o seu material. Se você tem o que a Ruz Records procura, a gente entra em contato.</p>
-    <div class="modal-form">
-      <div class="modal-field"><label class="modal-input-label">Nome artístico</label><input class="modal-input" type="text" placeholder="Seu nome ou nome artístico"/></div>
-      <div class="modal-field"><label class="modal-input-label">Contato</label><input class="modal-input" type="text" placeholder="@instagram ou WhatsApp"/></div>
-      <div class="modal-field"><label class="modal-input-label">Link do demo</label><input class="modal-input" type="url" placeholder="SoundCloud, YouTube..."/></div>
-      <div class="modal-field"><label class="modal-input-label">Estilo musical</label><input class="modal-input" type="text" placeholder="Phonk, Brazilian Phonk..."/></div>
-      <button class="modal-submit" aria-label="Enviar demo">Enviar Demo →</button>
+    <div class="modal-form" id="modalForm">
+      <div class="modal-field"><label class="modal-input-label">Nome artístico</label><input id="modalNome" class="modal-input" type="text" placeholder="Seu nome ou nome artístico"/></div>
+      <div class="modal-field"><label class="modal-input-label">Contato</label><input id="modalContato" class="modal-input" type="text" placeholder="@instagram ou WhatsApp"/></div>
+      <div class="modal-field"><label class="modal-input-label">Link do demo</label><input id="modalLink" class="modal-input" type="url" placeholder="SoundCloud, YouTube..."/></div>
+      <div class="modal-field"><label class="modal-input-label">Estilo musical</label><input id="modalEstilo" class="modal-input" type="text" placeholder="Phonk, Brazilian Phonk..."/></div>
+      <button class="modal-submit" id="modalSubmitBtn" aria-label="Enviar demo">Enviar Demo →</button>
+      <div class="modal-error" id="modalError"></div>
     </div>
-    <p class="modal-note">Todos os envios são analisados. Respondemos apenas às demos selecionadas.</p>
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">✓</div>
+      <div class="modal-success-title">Demo Recebida.</div>
+      <div class="modal-success-msg">Analisamos todos os envios.<br/>Respondemos apenas às demos selecionadas.</div>
+    </div>
   </div>
 </div>
 
@@ -406,8 +411,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
   document.getElementById('heroDemoBtn').addEventListener('click', function(e){ e.preventDefault(); openModal(); });
   document.getElementById('navCta').addEventListener('click', function(e){ e.preventDefault(); openModal(); });
   document.getElementById('footerDemoBtn').addEventListener('click', function(e){ e.preventDefault(); openModal(); });
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e){ if(e.target===modal) closeModal(); });
+  // close listeners moved to form submission block below
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
@@ -426,6 +430,69 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
   });
   const nc = document.getElementById('navContato');
   if(nc) nc.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+
+  // ── Demo form submission via Formspree ──────────────────────────────────
+  // 1. Acesse https://formspree.io e crie uma conta gratuita
+  // 2. Crie um novo form com o email ruzrec@gmail.com
+  // 3. Substitua 'SEU_FORM_ID' pelo ID fornecido (ex: xyzabcde)
+  const FORMSPREE_ID = 'mdabbolk';
+
+  function resetModal() {
+    document.getElementById('modalForm').style.display = '';
+    document.querySelector('.modal-sub').style.display = '';
+    document.getElementById('modalSuccess').classList.remove('show');
+    document.getElementById('modalError').classList.remove('show');
+    document.getElementById('modalError').textContent = '';
+    var btn = document.getElementById('modalSubmitBtn');
+    btn.classList.remove('loading');
+    btn.textContent = 'Enviar Demo →';
+    ['modalNome','modalContato','modalLink','modalEstilo'].forEach(function(id){
+      document.getElementById(id).value = '';
+    });
+  }
+
+  document.getElementById('modalClose').addEventListener('click', function(){ closeModal(); setTimeout(resetModal, 400); });
+  modal.addEventListener('click', function(e){ if(e.target===modal){ closeModal(); setTimeout(resetModal, 400); } });
+
+  document.getElementById('modalSubmitBtn').addEventListener('click', async function() {
+    var nome    = document.getElementById('modalNome').value.trim();
+    var contato = document.getElementById('modalContato').value.trim();
+    var link    = document.getElementById('modalLink').value.trim();
+    var estilo  = document.getElementById('modalEstilo').value.trim();
+    var errEl   = document.getElementById('modalError');
+
+    if (!nome || !contato || !link) {
+      errEl.textContent = 'Preencha nome, contato e link do demo.';
+      errEl.classList.add('show');
+      return;
+    }
+    errEl.classList.remove('show');
+
+    var btn = this;
+    btn.classList.add('loading');
+    btn.textContent = 'Enviando...';
+
+    try {
+      var res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome: nome, contato: contato, link: link, estilo: estilo })
+      });
+      if (res.ok) {
+        document.getElementById('modalForm').style.display = 'none';
+        document.querySelector('.modal-sub').style.display = 'none';
+        document.getElementById('modalSuccess').classList.add('show');
+        setTimeout(function(){ closeModal(); setTimeout(resetModal, 400); }, 3200);
+      } else {
+        throw new Error('server');
+      }
+    } catch(err) {
+      btn.classList.remove('loading');
+      btn.textContent = 'Enviar Demo →';
+      errEl.textContent = 'Erro ao enviar. Tente novamente.';
+      errEl.classList.add('show');
+    }
+  });
   const tnodes = document.querySelectorAll('.tstar');
   const tdef = document.getElementById('triadaDefault');
   const tpanels = { 'excelencia': document.getElementById('triadaExcelencia'), 'autenticidade': document.getElementById('triadaAutenticidade'), 'inovacao': document.getElementById('triadaInovacao') };
