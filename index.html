@@ -387,9 +387,10 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
     <p class="modal-sub">Manda o seu material. Se você tem o que a Ruz Records procura, a gente entra em contato.</p>
     <div class="modal-form" id="modalForm">
       <div class="modal-field"><label class="modal-input-label">Nome artístico</label><input id="modalNome" class="modal-input" type="text" placeholder="Seu nome ou nome artístico"/></div>
-      <div class="modal-field"><label class="modal-input-label">Contato</label><input id="modalContato" class="modal-input" type="text" placeholder="@instagram ou WhatsApp"/></div>
-      <div class="modal-field"><label class="modal-input-label">Link do demo</label><input id="modalLink" class="modal-input" type="url" placeholder="SoundCloud, YouTube..."/></div>
-      <div class="modal-field"><label class="modal-input-label">Estilo musical</label><input id="modalEstilo" class="modal-input" type="text" placeholder="Phonk, Brazilian Phonk..."/></div>
+      <div class="modal-field"><label class="modal-input-label">Instagram</label><input id="modalInstagram" class="modal-input" type="text" placeholder="@seuinstagram"/></div>
+      <div class="modal-field"><label class="modal-input-label">TikTok</label><input id="modalTiktok" class="modal-input" type="text" placeholder="@seutiktok"/></div>
+      <div class="modal-field"><label class="modal-input-label">Contato</label><input id="modalContato" class="modal-input" type="text" placeholder="Telegram ou WhatsApp"/></div>
+      <div class="modal-field"><label class="modal-input-label">Link da demo</label><input id="modalLink" class="modal-input" type="text" placeholder="YouTube, SoundCloud, Drive..."/></div>
       <button class="modal-submit" id="modalSubmitBtn" aria-label="Enviar demo">Enviar Demo →</button>
       <div class="modal-error" id="modalError"></div>
     </div>
@@ -450,7 +451,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
     var btn = document.getElementById('modalSubmitBtn');
     btn.classList.remove('loading');
     btn.textContent = 'Enviar Demo →';
-    ['modalNome','modalContato','modalLink','modalEstilo'].forEach(function(id){
+    ['modalNome','modalInstagram','modalTiktok','modalContato','modalLink'].forEach(function(id){
       document.getElementById(id).value = '';
     });
   }
@@ -459,14 +460,15 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
   modal.addEventListener('click', function(e){ if(e.target===modal){ closeModal(); setTimeout(resetModal, 400); } });
 
   document.getElementById('modalSubmitBtn').addEventListener('click', async function() {
-    var nome    = document.getElementById('modalNome').value.trim();
-    var contato = document.getElementById('modalContato').value.trim();
-    var link    = document.getElementById('modalLink').value.trim();
-    var estilo  = document.getElementById('modalEstilo').value.trim();
-    var errEl   = document.getElementById('modalError');
+    var nome      = document.getElementById('modalNome').value.trim();
+    var instagram = document.getElementById('modalInstagram').value.trim();
+    var tiktok    = document.getElementById('modalTiktok').value.trim();
+    var contato   = document.getElementById('modalContato').value.trim();
+    var link      = document.getElementById('modalLink').value.trim();
+    var errEl     = document.getElementById('modalError');
 
     if (!nome || !contato || !link) {
-      errEl.textContent = 'Preencha nome, contato e link do demo.';
+      errEl.textContent = 'Preencha nome, contato e link da demo.';
       errEl.classList.add('show');
       return;
     }
@@ -480,7 +482,7 @@ footer{border-top:1px solid var(--border);padding:56px 0 calc(56px + 44px);}
       var res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: nome, contato: contato, link: link, estilo: estilo })
+        body: JSON.stringify({ nome: nome, instagram: instagram, tiktok: tiktok, contato: contato, link: link })
       });
       if (res.ok) {
         document.getElementById('modalForm').style.display = 'none';
