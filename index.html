@@ -45,7 +45,7 @@ nav.scrolled{background:rgba(0,0,0,0.7);backdrop-filter:blur(16px);border-bottom
 #hero{position:relative;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden;}
 .hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.7) 100%);pointer-events:none;}
 .hero-logo-wrap{position:relative;opacity:0;animation:fadeUp 1.2s var(--ease-out) 0.3s forwards;margin-bottom:-110px;}
-.hero-logo-wrap::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;height:40%;background:radial-gradient(ellipse,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.025) 45%,transparent 100%);pointer-events:none;z-index:0;border-radius:50%;}
+
 .logo-glow-wrap{position:absolute;top:-40%;left:-40%;width:180%;height:180%;pointer-events:none;z-index:0;overflow:visible;}
 .logo-smoke{position:absolute;top:50%;left:50%;opacity:0;filter:blur(38px);pointer-events:none;background:radial-gradient(ellipse at 45% 50%,rgba(255,255,255,0.28) 0%,rgba(255,255,255,0.14) 40%,transparent 75%);animation:smokeRise var(--dur,6s) cubic-bezier(0.25,0.1,0.5,1) var(--delay,0s) infinite;}
 .logo-smoke:nth-child(1){width:260px;height:180px;border-radius:62% 38% 70% 30%/45% 60% 40% 55%;--dur:6s;--delay:0s;--rx:-15%;--ry:-50%;--rot:18deg;}
