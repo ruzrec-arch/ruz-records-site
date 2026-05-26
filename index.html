@@ -925,9 +925,9 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
 
 </script>
 
-<div class="modal-overlay" id="demoModal">
-  <div class="modal">
-    <button class="modal-close" id="modalClose" aria-label="Fechar modal">✕</button>
+<div class="modal-overlay" id="demoModal" onclick="var m=document.getElementById('demoModal');m.classList.remove('open');setTimeout(function(){m.style.display='none';},350);document.body.style.overflow='';return false;">
+  <div class="modal" onclick="event.stopPropagation();">
+    <button class="modal-close" id="modalClose" aria-label="Fechar modal" onclick="var m=document.getElementById('demoModal');m.classList.remove('open');setTimeout(function(){m.style.display='none';},350);document.body.style.overflow='';return false;">✕</button>
     <div class="modal-title">SEND YOUR DEMO</div>
     <p class="modal-sub">Manda o seu material. Se você tem o que a Ruz Records procura, a gente entra em contato.</p>
     <div class="modal-form">
