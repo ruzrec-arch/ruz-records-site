@@ -598,7 +598,7 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
     <li><a href="#differentials" class="nav-phonklist">PhonkList</a></li>
     <li><a href="#" id="navContato">Contato</a></li>
   </ul>
-  <a href="#" class="nav-cta" id="navCta">Send Demo</a>
+  <a href="#" class="nav-cta" id="navCta" onclick="var m=document.getElementById('demoModal');if(m){m.style.display='flex';setTimeout(function(){m.classList.add('open');},10);}return false;">Send Demo</a>
 </nav>
 
 <section id="hero">
@@ -609,7 +609,7 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
   <p class="hero-slogan">for artists, for the future.</p>
   <div class="hero-divider"></div>
   <div class="hero-ctas">
-    <a href="#" class="btn-primary" id="heroDemoBtn">Send your demo</a>
+    <a href="#" class="btn-primary" id="heroDemoBtn" onclick="var m=document.getElementById('demoModal');if(m){m.style.display='flex';setTimeout(function(){m.classList.add('open');},10);}return false;">Send your demo</a>
     <a href="#about" class="btn-secondary">Gênese</a>
   </div>
   <div class="scroll-hint" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
@@ -846,7 +846,7 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
         <li><a href="#about">Gênese</a></li>
         <li><a href="#hits">Sons</a></li>
         <li><a href="#differentials">PhonkList</a></li>
-        <li><a href="#" id="footerDemoBtn">Demo</a></li>
+        <li><a href="#" id="footerDemoBtn" onclick="var m=document.getElementById('demoModal');if(m){m.style.display='flex';setTimeout(function(){m.classList.add('open');},10);}return false;">Demo</a></li>
       </ul>
       <div class="footer-copy">© 2025 Ruz Records. All rights reserved.</div>
     </div>
