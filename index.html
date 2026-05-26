@@ -565,6 +565,22 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
 .trk-spotify:hover{background:#1ed760;transform:scale(1.1);}
 .trk-youtube{background:#FF0000;color:#fff;}
 .trk-youtube:hover{background:#ff3333;transform:scale(1.1);}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:5000;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.35s;}
+.modal-overlay.open{display:flex;opacity:1;pointer-events:all;}
+.modal{background:#0a0a0a;border:1px solid var(--border);max-width:480px;width:100%;padding:48px;position:relative;}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--silver-dim);font-size:1.2rem;cursor:pointer;transition:color 0.2s;}
+.modal-close:hover{color:var(--white);}
+.modal-title{font-family:var(--ff-heading);font-size:1.2rem;letter-spacing:0.2em;margin-bottom:12px;}
+.modal-sub{font-size:0.82rem;color:var(--silver-dim);margin-bottom:32px;line-height:1.6;}
+.modal-form{display:flex;flex-direction:column;gap:16px;}
+.modal-field{display:flex;flex-direction:column;gap:6px;}
+.modal-input-label{font-family:var(--ff-heading);font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver-dim);}
+.modal-input{background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:12px 16px;color:var(--white);font-family:var(--ff-body);font-size:0.88rem;outline:none;transition:border-color 0.2s;}
+.modal-input:focus{border-color:var(--silver-dim);}
+.modal-btn{background:var(--white);color:#000;font-family:var(--ff-heading);font-size:0.7rem;letter-spacing:0.2em;padding:16px;border:none;cursor:pointer;margin-top:8px;transition:background 0.2s;}
+.modal-btn:hover{background:var(--silver-bright);}
+.modal-disclaimer{font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center;}
 </style>
 </head>
 <body>
@@ -860,7 +876,7 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
   });
   
   const nc = document.getElementById('navContato');
-// Demo open removed
+  if(nc) nc.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('contato').scrollIntoView({behavior:'smooth'}); });
   const tnodes = document.querySelectorAll('.tstar');
   const tdef = document.getElementById('triadaDefault');
   const tpanels = { 'excelencia': document.getElementById('triadaExcelencia'), 'autenticidade': document.getElementById('triadaAutenticidade'), 'inovacao': document.getElementById('triadaInovacao') };
@@ -890,6 +906,38 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
       document.querySelectorAll('.triada-label').forEach(function(l){ l.classList.remove('lit'); });
     });
   });
+
+  // Send Demo modal
+  const demoModal = document.getElementById('demoModal');
+  if(demoModal){
+    function openModal(){ demoModal.classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeModal(){ demoModal.classList.remove('open'); document.body.style.overflow=''; }
+    ['navCta','heroDemoBtn','footerDemoBtn'].forEach(function(id){
+      const el = document.getElementById(id);
+      if(el) el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+    });
+    const mc = document.getElementById('modalClose');
+    if(mc) mc.addEventListener('click', closeModal);
+    demoModal.addEventListener('click', function(e){ if(e.target===demoModal) closeModal(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+  }
+
 </script>
+
+<div class="modal-overlay" id="demoModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Fechar modal">✕</button>
+    <div class="modal-title">SEND YOUR DEMO</div>
+    <p class="modal-sub">Manda o seu material. Se você tem o que a Ruz Records procura, a gente entra em contato.</p>
+    <div class="modal-form">
+      <div class="modal-field"><label class="modal-input-label">Nome artístico</label><input class="modal-input" type="text" placeholder="Seu nome ou nome artístico"/></div>
+      <div class="modal-field"><label class="modal-input-label">Contato</label><input class="modal-input" type="text" placeholder="@instagram ou WhatsApp"/></div>
+      <div class="modal-field"><label class="modal-input-label">Link do Demo</label><input class="modal-input" type="url" placeholder="SoundCloud, YouTube..."/></div>
+      <div class="modal-field"><label class="modal-input-label">Estilo Musical</label><input class="modal-input" type="text" placeholder="Phonk, Brazilian Phonk..."/></div>
+      <button class="modal-btn">ENVIAR DEMO →</button>
+      <p class="modal-disclaimer">Todos os envios são analisados. Respondemos apenas às demos selecionadas.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
