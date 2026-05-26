@@ -567,7 +567,7 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
 .trk-youtube:hover{background:#ff3333;transform:scale(1.1);}
 
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:5000;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.35s;}
-.modal-overlay.open{display:flex;opacity:1;pointer-events:all;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
 .modal{background:#0a0a0a;border:1px solid var(--border);max-width:480px;width:100%;padding:48px;position:relative;}
 .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--silver-dim);font-size:1.2rem;cursor:pointer;transition:color 0.2s;}
 .modal-close:hover{color:var(--white);}
@@ -908,19 +908,20 @@ footer{border-top:1px solid var(--border);padding:56px 0;}
   });
 
   // Send Demo modal
-  const demoModal = document.getElementById('demoModal');
-  if(demoModal){
-    function openModal(){ demoModal.classList.add('open'); document.body.style.overflow='hidden'; }
-    function closeModal(){ demoModal.classList.remove('open'); document.body.style.overflow=''; }
+  (function(){
+    var dm = document.getElementById('demoModal');
+    if(!dm) return;
+    function openDM(){ dm.style.display='flex'; setTimeout(function(){ dm.classList.add('open'); },10); document.body.style.overflow='hidden'; }
+    function closeDM(){ dm.classList.remove('open'); setTimeout(function(){ dm.style.display='none'; },350); document.body.style.overflow=''; }
     ['navCta','heroDemoBtn','footerDemoBtn'].forEach(function(id){
-      const el = document.getElementById(id);
-      if(el) el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+      var el = document.getElementById(id);
+      if(el) el.addEventListener('click', function(e){ e.preventDefault(); openDM(); });
     });
-    const mc = document.getElementById('modalClose');
-    if(mc) mc.addEventListener('click', closeModal);
-    demoModal.addEventListener('click', function(e){ if(e.target===demoModal) closeModal(); });
-    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
-  }
+    var mc = document.getElementById('modalClose');
+    if(mc) mc.addEventListener('click', closeDM);
+    dm.addEventListener('click', function(e){ if(e.target===dm) closeDM(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDM(); });
+  })();
 
 </script>
 
